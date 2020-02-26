@@ -24,10 +24,11 @@ class Chef
   class Resource::JenkinsView < Resource::LWRPBase
     resource_name :jenkins_view
 
-    # Chef attributes
+    # Chef Infra attributes
     identity_attr :name
 
     # Actions
+    actions :create, :delete
     default_action :create
 
     # Attributes

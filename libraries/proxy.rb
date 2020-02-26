@@ -28,10 +28,11 @@ class Chef
   class Resource::JenkinsProxy < Resource::LWRPBase
     resource_name :jenkins_proxy
 
-    # Chef attributes
+    # Chef Infra attributes
     identity_attr :proxy
 
     # Actions
+    actions :config, :remove
     default_action :config
 
     # Attributes

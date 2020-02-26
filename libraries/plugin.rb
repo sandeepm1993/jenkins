@@ -28,10 +28,11 @@ class Chef
   class Resource::JenkinsPlugin < Resource::LWRPBase
     resource_name :jenkins_plugin
 
-    # Chef attributes
+    # Chef Infra attributes
     identity_attr :name
 
     # Actions
+    actions :install, :uninstall, :enable, :disable
     default_action :install
 
     # Attributes

@@ -25,7 +25,7 @@ class Chef
   class Resource::JenkinsScript < Resource::JenkinsCommand
     resource_name :jenkins_script
 
-    # Chef attributes
+    # Chef Infra attributes
     identity_attr :name
 
     attribute :groovy_path,
@@ -37,6 +37,7 @@ class Chef
       required: false
 
     # Actions
+    actions :execute
     default_action :execute
   end
 end

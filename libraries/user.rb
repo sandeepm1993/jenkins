@@ -27,10 +27,11 @@ class Chef
   class Resource::JenkinsUser < Resource::LWRPBase
     resource_name :jenkins_user
 
-    # Chef attributes
+    # Chef Infra attributes
     identity_attr :id
 
     # Actions
+    actions :create, :delete
     default_action :create
 
     # Attributes

@@ -27,10 +27,11 @@ class Chef
   class Resource::JenkinsSlave < Resource::LWRPBase
     resource_name :jenkins_slave
 
-    # Chef attributes
+    # Chef Infra attributes
     identity_attr :slave_name
 
     # Actions
+    actions :create, :delete, :connect, :disconnect, :online, :offline
     default_action :create
 
     # Attributes

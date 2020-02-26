@@ -25,10 +25,11 @@ class Chef
   class Resource::JenkinsCommand < Resource::LWRPBase
     resource_name :jenkins_command
 
-    # Chef attributes
+    # Chef Infra attributes
     identity_attr :command
 
     # Actions
+    actions :execute
     default_action :execute
 
     # Attributes
