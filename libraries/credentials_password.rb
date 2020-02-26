@@ -26,13 +26,8 @@ class Chef
   class Resource::JenkinsPasswordCredentials < Resource::JenkinsUserCredentials
     resource_name :jenkins_password_credentials
 
-    # Attributes
-    attribute :username,
-              kind_of: String,
-              name_attribute: true
-    attribute :password,
-              kind_of: String,
-              required: true
+    property :username, String, name_property: true, identity: true
+    property :password, String, required: true
   end
 end
 

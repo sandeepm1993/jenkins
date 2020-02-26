@@ -25,30 +25,18 @@ require 'digest'
 require_relative '_helper'
 
 class Chef
-  class Resource::JenkinsPlugin < Resource::LWRPBase
+  class Resource::JenkinsPlugin < Chef::Resource
     resource_name :jenkins_plugin
 
-    # Chef Infra attributes
-    identity_attr :name
-
     # Actions
-    actions :install, :uninstall, :enable, :disable
+    allowed_actions :install, :uninstall, :enable, :disable
     default_action :install
 
-    # Attributes
-    attribute :name,
-              kind_of: String,
-              name_attribute: true
-    attribute :version,
-              kind_of: [String, Symbol],
-              default: :latest
-    attribute :source,
-              kind_of: String
+    property :version, [String, Symbol], default: :latest
+    property :source, String
     # TODO: Remove in next major version release
-    attribute :install_deps,
-              kind_of: [true, false]
-    attribute :options,
-              kind_of: String
+    property :install_deps, [true, false]
+    property :options, String
 
     attr_writer :installed
 

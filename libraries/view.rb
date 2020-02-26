@@ -21,26 +21,15 @@ require_relative '_helper'
 require_relative '_params_validate'
 
 class Chef
-  class Resource::JenkinsView < Resource::LWRPBase
+  class Resource::JenkinsView < Chef::Resource
     resource_name :jenkins_view
 
-    # Chef Infra attributes
-    identity_attr :name
-
     # Actions
-    actions :create, :delete
+    allowed_actions :create, :delete
     default_action :create
 
-    # Attributes
-    attribute :name,
-              kind_of: String
-    attribute :jobs,
-              kind_of: Array,
-              default: []
-    attribute :code,
-              kind_of: String,
-              default: '',
-              required: false
+    property :jobs, Array, default: []
+    property :code, String, default: '', required: false
 
     attr_writer :exists
 

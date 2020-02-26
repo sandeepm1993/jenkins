@@ -25,16 +25,8 @@ class Chef
   class Resource::JenkinsSecretTextCredentials < Resource::JenkinsCredentials
     resource_name :jenkins_secret_text_credentials
 
-    # Chef attributes
-    identity_attr :description
-
-    # Attributes
-    attribute :description,
-              kind_of: String,
-              name_attribute: true
-    attribute :secret,
-              kind_of: String,
-              required: true
+    property :description, String, name_property: true, identity: true
+    property :secret, String, required: true
   end
 end
 

@@ -22,20 +22,14 @@
 require_relative '_helper'
 
 class Chef
-  class Resource::JenkinsCommand < Resource::LWRPBase
+  class Resource::JenkinsCommand < Chef::Resource
     resource_name :jenkins_command
 
-    # Chef Infra attributes
-    identity_attr :command
-
     # Actions
-    actions :execute
+    allowed_actions :execute
     default_action :execute
 
-    # Attributes
-    attribute :command,
-              kind_of: String,
-              name_attribute: true
+    property :command, String, name_property: true, identity: true
   end
 end
 
