@@ -3,18 +3,7 @@ require 'spec_helper'
 describe 'jenkins::java' do
   context 'on Debian' do
     cached(:chef_run) do
-      ChefSpec::SoloRunner.new(platform: 'debian', version: '8.9')
-                          .converge(described_recipe)
-    end
-
-    it 'installs openjdk-7-jdk' do
-      expect(chef_run).to install_package('openjdk-7-jdk')
-    end
-  end
-
-  context 'on Ubuntu 14.04' do
-    cached(:chef_run) do
-      ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04')
+      ChefSpec::SoloRunner.new(platform: 'debian', version: '8')
                           .converge(described_recipe)
     end
 
@@ -36,7 +25,7 @@ describe 'jenkins::java' do
 
   context 'on CentOS 7' do
     cached(:chef_run) do
-      ChefSpec::SoloRunner.new(platform: 'centos', version: '7.3.1611')
+      ChefSpec::SoloRunner.new(platform: 'centos', version: '7')
                           .converge(described_recipe)
     end
 
@@ -58,7 +47,7 @@ describe 'jenkins::java' do
 
   context 'on an unsupported platform' do
     cached(:chef_run) do
-      ChefSpec::SoloRunner.new(platform: 'mac_os_x', version: '10.12')
+      ChefSpec::SoloRunner.new(platform: 'mac_os_x')
                           .converge(described_recipe)
     end
 
